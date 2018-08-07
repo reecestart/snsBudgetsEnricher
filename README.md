@@ -6,7 +6,7 @@ In this example the Lambda Function is triggered by the SNS Topic when an AWS Bu
 
 ## Architecture
 
-<insert image>
+![Architecture](https://raw.githubusercontent.com/reecestart/snsBudgetsEnricher/master/SNS%20Budget%20Enricher%20Architecture.jpg)
 
 ## To Do
 
