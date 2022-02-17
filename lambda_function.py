@@ -1,12 +1,18 @@
 from __future__ import print_function
 
 import json
+from logging import Logger
 import boto3
 import datetime
 from pprint import pprint
 from datetime import date, timedelta
 
 print('Loading function')
+
+def logging_noncompliant():
+    filename = input("Enter a filename: ")
+    # Noncompliant: unsanitized input is logged.
+    Logger.info("Processing %S", filename)
 
 
 def lambda_handler(event, context):
