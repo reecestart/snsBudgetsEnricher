@@ -16,4 +16,10 @@ jobs:
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
+      - run: echo "set aws creds for codeguru"
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          role-to-assume: arn:aws:iam::918729401437:role/my-github-actions-role
+          aws-region: ap-southeast-2
       - run: echo "🍏 This job's status is ${{ job.status }}."
