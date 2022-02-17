@@ -10,6 +10,8 @@ jobs:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+      
+      # Step 1: Checkout the repository and provide your AWS credentials
       - name: Check out repository code
         uses: actions/checkout@v2
         with:
@@ -26,10 +28,14 @@ jobs:
           role-to-assume: arn:aws:iam::918729401437:role/my-github-actions-role
           role-duration-seconds: 900 # the ttl of the session, in seconds.
           aws-region: ap-southeast-2
+
+      # Step 2: Add CodeGuru Reviewer Action
       - name: CodeGuru Reviewer
         uses: aws-actions/codeguru-reviewer@v1.1
         with:
           s3_bucket: codeguru-reviewer-reviewer # S3 Bucket with "codeguru-reviewer-*" prefix
+      
+      # Step 3: Upload results into GitHub
       - name: Upload review result
         if: ${{ github.event_name != 'push' }}
         uses: github/codeql-action/upload-sarif@v1
