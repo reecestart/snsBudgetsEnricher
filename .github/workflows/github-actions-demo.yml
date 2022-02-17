@@ -29,7 +29,8 @@ jobs:
           role-duration-seconds: 900 # the ttl of the session, in seconds.
           aws-region: ap-southeast-2
 
-      # Step 2: Add CodeGuru Reviewer Action
+      # Step 2: Add CodeGuru Reviewer Action #
+      #### Note: ensure that the repo is not already associated with CodeGuru Reviewer ###
       - name: CodeGuru Reviewer
         uses: aws-actions/codeguru-reviewer@v1.1
         with:
