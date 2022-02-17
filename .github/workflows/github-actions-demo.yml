@@ -26,4 +26,8 @@ jobs:
           role-to-assume: arn:aws:iam::918729401437:role/my-github-actions-role
           role-duration-seconds: 900 # the ttl of the session, in seconds.
           aws-region: ap-southeast-2
+      - name: CodeGuru Reviewer
+        uses: aws-actions/codeguru-reviewer@v1.1
+        with:
+          s3_bucket: codeguru-reviewer-reviewer # S3 Bucket with "codeguru-reviewer-*" prefix
       - run: echo "🍏 This job's status is ${{ job.status }}."
