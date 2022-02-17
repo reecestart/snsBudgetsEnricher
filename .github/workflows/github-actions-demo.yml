@@ -31,6 +31,8 @@ jobs:
 
       # Step 2: Add CodeGuru Reviewer Action #
       #### Note: ensure that the repo is not already associated with CodeGuru Reviewer ###
+      #### Check the CodeGuru Reviewer API e.g. aws codeguru-reviewer list-repository-associations to confirm
+      ##### ^^^ this is because the console may not be in sync.
       - name: CodeGuru Reviewer
         uses: aws-actions/codeguru-reviewer@v1.1
         with:
