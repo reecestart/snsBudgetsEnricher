@@ -10,7 +10,7 @@ from datetime import date, timedelta
 print('Loading function')
 
 def logging_noncompliant():
-    filename = input("Enter a file-name: ")
+    filename = input("Enter a filename: ")
     # Noncompliant: unsanitized input is logged.
     Logger.info("Processing %S", filename)
 

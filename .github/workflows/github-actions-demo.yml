@@ -2,9 +2,10 @@ name: CodeGuru Reviewer GitHub Actions
 on: [push]
 permissions:
   id-token: write # required to use OIDC authentication
-  contents: read # required to checkout the code from the repo
+  contents: write # required to checkout the code from the repo
+  pull-requests: write
 jobs:
-  Explore-GitHub-Actions:
+  CodeGuru-Reviewer-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
