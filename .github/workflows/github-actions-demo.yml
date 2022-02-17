@@ -33,6 +33,7 @@ jobs:
       #### Note: ensure that the repo is not already associated with CodeGuru Reviewer ###
       #### Check the CodeGuru Reviewer API e.g. aws codeguru-reviewer list-repository-associations to confirm
       ##### ^^^ this is because the console may not be in sync.
+      ##### If previously authorized you need to revoke the authorized OAuth apps first.
       - name: CodeGuru Reviewer
         uses: aws-actions/codeguru-reviewer@v1.1
         with:
