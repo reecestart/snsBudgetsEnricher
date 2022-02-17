@@ -25,20 +25,15 @@ jobs:
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          # Change to secret role-to-assume: arn:aws:iam::918729401437:role/my-github-actions-role
           role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/my-github-actions-role
           role-duration-seconds: 900 # the ttl of the session, in seconds.
           aws-region: ap-southeast-2
 
       # Step 2: Add CodeGuru Reviewer Action #
-      #### Note: ensure that the repo is not already associated with CodeGuru Reviewer ###
-      #### Check the CodeGuru Reviewer API e.g. aws codeguru-reviewer list-repository-associations to confirm
-      ##### ^^^ this is because the console may not be in sync.
-      ##### If previously authorized you need to revoke the authorized OAuth apps first.
       - name: CodeGuru Reviewer
         uses: aws-actions/codeguru-reviewer@v1.1
         with:
-          build_path: . # build artifact(s) directory test
+          build_path: . # build artifact(s) directory
           s3_bucket: codeguru-reviewer-rdenne # S3 Bucket with "codeguru-reviewer-*" prefix
       
       # Step 3: Upload results into GitHub
